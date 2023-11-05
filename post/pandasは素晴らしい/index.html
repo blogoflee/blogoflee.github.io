@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.119.0">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pandasは素晴らしい &middot; りのブログ</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-09 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://blogoflee.github.io/"><h1>りのブログ</h1></a>
+      <p class="lead">
+       開発であった問題を記録するブログです 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://blogoflee.github.io/">Home</a> </li>
+        <li><a href="https://github.com/blogoflee"> Github </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Pandasは素晴らしい</h1>
+  <time datetime=2023-11-05T11:18:48&#43;0900 class="post-date">Sun, Nov 5, 2023</time>
+  <h2 id="pandasとは">Pandasとは</h2>
+<p>Pandas（パンダス）とは、データ解析を容易にする機能を提供するPythonのデータ解析ライブラリです。</p>
+<p>Pandasの特徴には、データフレーム(DataFrame)などの独自のデータ構造が提供されており、様々な処理が可能です。</p>
+<p>特に、表形式のデータをSQLまたはRのように操作することが可能で、かつ高速で処理できます。</p>
+<h2 id="excelを読み込み">Excelを読み込み</h2>
+<p>import pandas as pd ライブラリを導入</p>
+<p>PandasでExcelファイル（拡張子:<code>.xlsx</code>, <code>.xls</code>）を<code>pandas.DataFrame</code>として読み込むには、<code>pandas.read_excel()</code>関数を使う。</p>
+<p><code>df=pd.read_excel(&quot;/Users/pandas/case.xlsx&quot;,sheet_name=&quot;成績&quot;,usecols=&quot;A,C&quot;,names=['number','value'])</code></p>
+<p>パスは必要です。</p>
+<p>sheet_nameは操作したいシートです。書かなくてファイル全部を読み込みます。</p>
+<p>usecolsは操作したい列です。書かなくてすべての列を読み込みます。</p>
+<p>namesは別名です。</p>
+<h2 id="excelのデータを処理">Excelのデータを処理</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>indexs <span style="color:#f92672">=</span> df[df[<span style="color:#e6db74">&#39;number&#39;</span>]<span style="color:#f92672">.</span>isin([<span style="color:#e6db74">&#39;001&#39;</span>, <span style="color:#e6db74">&#39;900&#39;</span>])]<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>tolist()
+</span></span></code></pre></div><p>numberという列で値が'001&rsquo;と'900&rsquo;のインデックスを取り</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>iloc[start:stop]
+</span></span></code></pre></div><p>indexはstart~stopという範囲のデータを取って</p>
+<p><code>pd.merge(dataFrame1,dataFrame2,on='number',how='left')</code></p>
+<p>SQL分なら、select * from dataFrame1 lefjoin dataFrame2 on dataFrame1.number=dataFrame2.number</p>
+<h3 id="縦横結合">縦横結合</h3>
+<p><img src="/static/%E7%B8%A6%E6%A8%AA%E7%B5%90%E5%90%88.jpg" alt=""></p>
+<p>pd.concat([x,y]) 🟰SQLのunion all</p>
+<p>pd.concat([x,y],axis=1) とは横結合です。</p>
+<h2 id="pandasでデータを既存excelファイルに書き込み">Pandasでデータを既存Excelファイルに書き込み</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> pd<span style="color:#f92672">.</span>ExcelWriter(<span style="color:#e6db74">&#34;/Users/名前.xlsx&#34;</span>, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;a&#34;</span>, engine<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;openpyxl&#34;</span>, if_sheet_exists<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;overlay&#34;</span>) <span style="color:#66d9ef">as</span> writer:
+</span></span><span style="display:flex;"><span>    df_concat<span style="color:#f92672">.</span>to_excel(writer, sheet_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;成績&#34;</span>, startrow<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, startcol<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, header<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span></code></pre></div>
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
