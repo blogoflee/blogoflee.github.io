@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.119.0">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hugo install &middot; りのブログ</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-09 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://blogoflee.github.io/"><h1>りのブログ</h1></a>
+      <p class="lead">
+       開発であった問題を記録するブログです 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://blogoflee.github.io/">Home</a> </li>
+        <li><a href="https://github.com/blogoflee"> Github </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Hugo install</h1>
+  <time datetime=2023-11-05T09:44:44&#43;0900 class="post-date">Sun, Nov 5, 2023</time>
+  <h1 id="クイックスタート">クイックスタート</h1>
+<h2 id="hugoをインストール">Hugoをインストール</h2>
+<h3 id="1バイナリのインストール推奨シンプルで高速">1.バイナリのインストール（推奨：シンプルで高速）</h3>
+<p><a href="https://github.com/spf13/hugo/releases">Hugo Releases</a> で対応するオペレーティングシステムバージョンのHugoバイナリファイル（hugoまたはHugo.exe)をダウンロード</p>
+<p>MacOSならHomebrewでインストール</p>
+<p><code>brew install hugo</code></p>
+<h3 id="２ソースコードのインストール">２.ソースコードのインストール</h3>
+<p>まず依存ツールをインストール：</p>
+<ul>
+<li><a href="http://git-scm.com/">Git</a></li>
+<li><a href="http://golang.org/">Go</a> 1.3+ (Go 1.4+ on Windows)</li>
+</ul>
+<p>GOPATH環境変数を設定し、ソースコードを取得してコンパイルします</p>
+<p><code>$ export GOPATH=$HOME/go </code></p>
+<p><code>$ go install github.com/gohugoio/hugo@latest</code></p>
+<h2 id="サイトの生成">サイトの生成</h2>
+<p>例えば、/path/to/site パスを生成したい場合は、Hugoを使用してサイトをすばやく生成します</p>
+<p><code>$ hugo new site /path/to/site</code></p>
+<p>このようにして、/path/to/siteディレクトリに初期サイトが生成されます。</p>
+<p><code>$ cd　/path/to/site</code></p>
+<p>サイトのディレクトリ構造：</p>
+<p>▸ archetypes/</p>
+<p>▸ content/</p>
+<p>▸ layouts/</p>
+<p>▸ <strong>static</strong>/</p>
+<p>　config.toml</p>
+<h2 id="ブログを作る">ブログを作る</h2>
+<p><code>$ hugo new post/first.md</code></p>
+<p>post/first.mdをオッペンする、draft=trueを削除、編集：</p>
+<pre tabindex="0"><code>---
+date: &#34;2023-10-25T08:36:54-07:00&#34;
+title: &#34;first&#34;
+ 
+---
+
+### Hello Hugo
+
+ 1. aaa
+ 1. bbb
+ 1. ccc
+</code></pre><h2 id="themeをインストール">themeをインストール</h2>
+<p><a href="https://themes.gohugo.io/">themeリスト</a>で好きなthemを選んで、アドレスをコピーし</p>
+<p><code>$ cd /path/to/site/themes </code></p>
+<p><code>$ git clone https://github.com/spf13/hyde.git</code></p>
+<h2 id="hugoを実行">Hugoを実行</h2>
+<p><code>$ cd /path/to/site</code></p>
+<p><code>$ hugo server --theme=hyde --buildDrafts</code></p>
+<p>ブラウザで: http://localhost:1313</p>
+<h2 id="デプロイ">デプロイ</h2>
+<p>GitHub Pagesにデプロイしたら、まずGitHub上にリポジトリを作成し、username.github.ioという名前をつけます（usernameをGitHubユーザー名に書き換えます）</p>
+<p><code>$ cd /path/to/site</code></p>
+<p><code>$ hugo --theme=hyde -b=&quot;https://username.github.io/&quot;&quot;</code></p>
+<p>（上記のコマンドでは下書きページは生成されないことに注意してください。記事が生成されない場合は、記事のヘッダーからdraft=trueを削除して再生成してください）</p>
+<p>すべてがうまくいけば、すべての静的ページがpublicディレクトリに生成され、public内のすべてのファイルが新しく作成されたリポジトリのmasterブランチにプッシュされます。</p>
+<p>`$ <strong>cd</strong> public</p>
+<p>$ git init</p>
+<p>$ git remote add origin <a href="https://github.com/username/username.github.io.git">https://github.com/username/username.github.io.git</a></p>
+<p>$ git add -A</p>
+<p>$ git commit -m &ldquo;first commit&rdquo;</p>
+<p>$ git push -u origin master`</p>
+<p><a href="http://username.github.io/">http://username.github.io/</a>  にアクセスしてみましょう。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
