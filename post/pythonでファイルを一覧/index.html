@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.119.0">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pythonでファイルを一覧 &middot; りのブログ</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-09 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://blogoflee.github.io/"><h1>りのブログ</h1></a>
+      <p class="lead">
+       開発であった問題を記録するブログです 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://blogoflee.github.io/">Home</a> </li>
+        <li><a href="https://github.com/blogoflee"> Github </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2023. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Pythonでファイルを一覧</h1>
+  <time datetime=2023-11-08T17:38:43&#43;0900 class="post-date">Wed, Nov 8, 2023</time>
+  <h1 id="結論">結論</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> glob
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> natsort <span style="color:#f92672">import</span> natsorted
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_files</span>(path):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ファイルリストを取得
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path: 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">         例：/user/grade.xlsx
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      files list
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    files <span style="color:#f92672">=</span> natsorted(glob<span style="color:#f92672">.</span>glob(path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;*.xlsx&#34;</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> files
+</span></span></code></pre></div><p><code>pip install natsort</code></p>
+<h1 id="内容">内容</h1>
+<p>ディレクトリのファリル名をsortして表示することを考えます。</p>
+<h2 id="glob">glob</h2>
+<p>ファイル名の取得はglob.globで行うことができます。</p>
+<p>入力は*.xlsxのような正規表現でも扱えます。</p>
+<h2 id="natsort">natsort</h2>
+<p>natsortを使うと、文字列内の数字を認識してsortしてくれます。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
