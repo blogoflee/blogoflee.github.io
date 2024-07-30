@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.120.4">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kubectlコマンド &middot; りのブログ</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://blogoflee.github.io/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class="theme-base-09 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://blogoflee.github.io/"><h1>りのブログ</h1></a>
+      <p class="lead">
+       開発であった問題を記録するブログです 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://blogoflee.github.io/">Home</a> </li>
+        <li><a href="https://github.com/blogoflee"> Github </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2024. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Kubectlコマンド</h1>
+  <time datetime=2024-07-30T09:29:47&#43;0900 class="post-date">Tue, Jul 30, 2024</time>
+  <h3 id="podsを取得">podsを取得</h3>
+<p><code>kubetctl get pods | grep keyWord</code></p>
+<h3 id="deployを取得">deployを取得</h3>
+<p><code>kubetctl get deploy | grep keyWord </code></p>
+<h3 id="pod-を削除">pod を削除</h3>
+<p><code>kubetctl delete pod podName -c containerName</code></p>
+<h3 id="deploymentを削除">deploymentを削除</h3>
+<p><code>kubetctl delete deployment name</code></p>
+<h3 id="config-properties-file-nameをチェック">config properties file nameをチェック</h3>
+<p><code>kubetctl get cm | grep keyWord</code></p>
+<h3 id="configをチェック">configをチェック</h3>
+<p><code>kubetctl describe cm name</code></p>
+<h3 id="config-properties-fileを編集">config properties fileを編集</h3>
+<p><code>kubetctl edit cm fileName</code></p>
+<h3 id="kubernetesのイベント監視">kubernetesのイベント監視</h3>
+<p><code>kubetctl get events | grep name</code></p>
+<h3 id="domainをチェック">domainをチェック</h3>
+<p><code>kubetctl get vs</code></p>
+<h3 id="pod数を拡大">pod数を拡大</h3>
+<p><code>kubetctl scale </code>deployment &ndash;replicas=number nameSpace</p>
+<h3 id="pod-ログをチェック">pod ログをチェック</h3>
+<p><code>kubetctl logs -f podName -c containerName </code>
+<code>kubetctl logs --tail=50 podName  -c containerName</code>
+<code>kubetctl logs --since=1h podName  -c containerName</code></p>
+<h3 id="podのログ設定などをチェック">podのログ、設定などをチェック</h3>
+<p><code>kubetctl exec -it podName -c containerName --sh</code></p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

@@ -6,33 +6,35 @@
     <description>Recent content on りのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 08 Nov 2023 17:38:43 +0900</lastBuildDate><atom:link href="https://blogoflee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2024 09:29:47 +0900</lastBuildDate>
+    <atom:link href="https://blogoflee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubectlコマンド</title>
+      <link>https://blogoflee.github.io/post/kubectl%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</link>
+      <pubDate>Tue, 30 Jul 2024 09:29:47 +0900</pubDate>
+      <guid>https://blogoflee.github.io/post/kubectl%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</guid>
+      <description>podsを取得 kubetctl get pods | grep keyWord deployを取得 kubetctl get deploy | grep keyWord pod を削除 kubetctl delete pod podName -c containerName deploymentを削除 kubetctl delete deployment name config properties file nameをチェック kubetctl get cm</description>
+    </item>
     <item>
       <title>Pythonでファイルを一覧</title>
       <link>https://blogoflee.github.io/post/python%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%B8%80%E8%A6%A7/</link>
       <pubDate>Wed, 08 Nov 2023 17:38:43 +0900</pubDate>
-      
       <guid>https://blogoflee.github.io/post/python%E3%81%A7%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E4%B8%80%E8%A6%A7/</guid>
       <description>結論 import glob from natsort import natsorted def get_files(path): &amp;#34;&amp;#34;&amp;#34; ファイルリストを取得 Args: path: 例：/user/grade.xlsx Returns: files list &amp;#34;&amp;#34;&amp;#34; files = natsorted(glob.glob(path + &amp;#34;*.xlsx&amp;#34;)) return files pip install natsort 内容 ディレクトリのファリル名を</description>
     </item>
-    
     <item>
       <title>Pandasは素晴らしい</title>
       <link>https://blogoflee.github.io/post/pandas%E3%81%AF%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%84/</link>
       <pubDate>Sun, 05 Nov 2023 11:18:48 +0900</pubDate>
-      
       <guid>https://blogoflee.github.io/post/pandas%E3%81%AF%E7%B4%A0%E6%99%B4%E3%82%89%E3%81%97%E3%81%84/</guid>
       <description>Pandasとは Pandas（パンダス）とは、データ解析を容易にする機能を提供するPythonのデータ解析ライブラリです。 Pandasの特徴</description>
     </item>
-    
     <item>
       <title>Hugo install</title>
       <link>https://blogoflee.github.io/post/hugo%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/</link>
       <pubDate>Sun, 05 Nov 2023 09:44:44 +0900</pubDate>
-      
       <guid>https://blogoflee.github.io/post/hugo%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/</guid>
       <description>クイックスタート Hugoをインストール 1.バイナリのインストール（推奨：シンプルで高速） Hugo Releases で対応するオペレーティングシステムバージョンのH</description>
     </item>
-    
   </channel>
 </rss>
